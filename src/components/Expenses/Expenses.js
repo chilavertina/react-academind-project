@@ -15,10 +15,9 @@ function Expenses(props) {
     <div>
       <Card className="expenses">
         <ExpensesFilter selected={filteredYear} onSavePickedYearData={pickedYearDataHandler} />
-        <ExpenseItem title={props.troskovi[0].title} amount={props.troskovi[0].amount} date={props.troskovi[0].date} />
-        <ExpenseItem title={props.troskovi[1].title} amount={props.troskovi[1].amount} date={props.troskovi[1].date} />
-        <ExpenseItem title={props.troskovi[2].title} amount={props.troskovi[2].amount} date={props.troskovi[2].date} />
-        <ExpenseItem title={props.troskovi[3].title} amount={props.troskovi[3].amount} date={props.troskovi[3].date} />
+        {props.troskovi.map((expense) => (
+          <ExpenseItem title={expense.title} amount={expense.amount} date={expense.date} />
+        ))}
       </Card>
     </div>
   );
